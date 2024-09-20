@@ -21,8 +21,8 @@ def main():
                 continue
 
             audio, samplerate = librosa.load( path=file, sr=f.samplerate, mono=False)
-            del audio[0]
-            del audio[1]
+            np.delete(audio, 0)
+            np.delete(audio, 1)
 
             f.write(audio)
             if f.channels != (N_CHAN - 2):
